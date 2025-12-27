@@ -1,0 +1,14 @@
+# Terraform temporary files
+.terraform/
+*.tfstate
+*.tfstate.backup
+.terraform.lock.hcl
+
+# Python / Django
+__pycache__/
+*.py[cod]
+venv/
+.env
+
+# Mac system files
+.DS_Store
