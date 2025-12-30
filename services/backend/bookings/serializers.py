@@ -5,8 +5,8 @@ from .models import Booking
 class RestaurantTableSerializer(serializers.ModelSerializer):
     class Meta:
         model = RestaurantTable
-        fields = ['id', 'table_number', 'capacity', 'is_premium']
-
+        fields = ['id', 'table_number', 'capacity', 'is_premium', 'image']
+        
 class BookingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Booking

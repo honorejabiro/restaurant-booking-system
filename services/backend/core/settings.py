@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -143,3 +144,7 @@ LOGIN_REDIRECT_URL = '/bookings/'
 
 # Where to redirect after logging out
 LOGOUT_REDIRECT_URL = '/'
+
+# The physical folder on your disk
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

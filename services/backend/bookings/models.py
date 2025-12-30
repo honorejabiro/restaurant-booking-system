@@ -4,11 +4,8 @@ from django.contrib.auth.models import User
 class RestaurantTable(models.Model):
     table_number = models.IntegerField(unique=True)
     capacity = models.IntegerField()
-    # Analytics: Is this a premium spot (window/VIP)?
     is_premium = models.BooleanField(default=False)
-    
-    def __str__(self):
-        return f"Table {self.table_number} ({self.capacity} seats)"
+    image = models.ImageField(upload_to='table_photos/', null=True, blank=True)
 
 class Reservation(models.Model):
     table = models.ForeignKey(RestaurantTable, on_delete=models.CASCADE)
