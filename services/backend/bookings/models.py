@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class RestaurantTable(models.Model):
     table_number = models.IntegerField(unique=True)
@@ -20,3 +21,18 @@ class Reservation(models.Model):
 
     def __str__(self):
         return f"{self.customer_name} - Table {self.table.table_number}"
+    
+class Booking(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    table = models.ForeignKey(RestaurantTable, on_delete=models.CASCADE)
+    booking_time = models.DateTimeField()
+    number_of_guests = models.IntegerField()
+    
+    # NEW: Status field for lifecycle management
+    STATUS_CHOICES = [
+        ('PENDING', 'Pending'),
+        ('CONFIRMED', 'Confirmed'),
+        ('CANCELLED', 'Cancelled'),
+    ]
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='PENDING')
+    created_at = models.DateTimeField(auto_now_add=True)

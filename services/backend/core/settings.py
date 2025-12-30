@@ -35,7 +35,6 @@ INSTALLED_APPS = [
     'bookings',
     'rest_framework',
     'corsheaders',
-    'bookings',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
